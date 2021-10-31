@@ -50,7 +50,7 @@ async function run(){
         res.json(result)
       })
       // User Booking Details
-      app.get('/userorders/:email',async(req,res)=>{
+      app.get('/mybooking/:email',async(req,res)=>{
         console.log(req.params.email);
         const result =await userOrderCollection.find({email:req.params.email}).toArray();
         res.send(result);
@@ -104,7 +104,7 @@ async function run(){
       res.json(result)
     })
     //Delete Booking
-    app.get('/userorders/:id', async(req,res)=>{
+    app.delete('/mybooking/:id', async(req,res)=>{
     const id=req.params.id;
     const query={_id: ObjectId(id)}
     const result=await userOrderCollection.deleteOne(query)
